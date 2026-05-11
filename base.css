@@ -1,0 +1,431 @@
+:root {
+    --dark-text: #1e293b; /* Slate 800 - Almost black, much sharper */
+    --text-muted: #475569; /* Slate 600 - Dark enough to read easily, light enough to be secondary */
+    /* Keep your existing primary-blue, primary-green, etc. */
+
+
+    /* UI Colors */
+    --glass-white: rgba(255, 255, 255, 0.95);
+    --glass-overlay: rgba(255, 255, 255, 0.15);
+    --glossy-gradient: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.2) 100%);
+    --premium-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #1e40af 100%);
+    --green-gradient: linear-gradient(135deg, #71b100 0%, #85cc00 50%, #629900 100%);
+
+    --dark-text: #1e293b;
+    --text-muted: #64748b;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.3);
+    --shadow-glossy: 0 20px 40px -10px rgba(30, 58, 138, 0.3), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.black-box {
+    background-color: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+/* --- Header & Navigation (shared on public pages) --- */
+header {
+    background: var(--white);
+    padding: 16px 0;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-placeholder {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.logo-img {
+    width: auto;
+    height: 60px;
+}
+
+.company-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: -0.02em;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-blue);
+}
+
+nav a.active {
+    position: relative;
+}
+
+nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-green);
+    border-radius: 2px;
+}
+
+.btn-outline {
+    border: 1.5px solid var(--border-color);
+    color: var(--dark-text);
+    padding: 10px 24px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    background-color: #eff6ff;
+}
+
+/* Common button variants used across public pages */
+.btn-primary,
+.btn-secondary,
+.submit-btn {
+    padding: 14px 32px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-green);
+    color: var(--white);
+    box-shadow: var(--shadow-sm);
+    border: 0;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #629900;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--dark-text);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Login uses a separate body class, keep it shared */
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+.login-body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Chatbot base (shown on index; safe to keep shared) */
+
+/* Shared utility classes used by multiple pages */
+.page-header-content{position:relative;z-index:2;}
+.black-box{position:relative;}
+
+/* Keep footer grid styles shared to avoid missing layout */
+.footer{background-color:var(--primary-blue);color:#94a3b8;padding:50px 0 30px 0;font-size:0.95rem;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr 1.5fr;gap:40px;margin-bottom:60px;}
+.footer-col h4{color:var(--white);font-size:1.1rem;margin-bottom:24px;font-weight:600;}
+.footer-col p{line-height:1.7;margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:16px;}
+.footer-col ul a{color:#94a3b8;text-decoration:none;transition:var(--transition);}
+.footer-col ul a:hover{color:var(--primary-green);}
+.footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.85rem;}
+
+@media (max-width: 768px){.footer-grid{grid-template-columns:1fr;}}
+
+.chatbot-wrapper {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.chatbot-fab {
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-fab:hover {
+    transform: scale(1.1);
+    background: #629900;
+}
+
+.chatbot-window {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 450px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-glossy);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.chat-header {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.close-chat-btn {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--light-bg);
+}
+
+.chat-message {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    max-width: 85%;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message {
+    background: var(--primary-green);
+    color: var(--white);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.faq-chips {
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    background: var(--white);
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.faq-chip {
+    background: #eff6ff;
+    color: var(--primary-blue);
+    border: 1px solid #bfdbfe;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.faq-chip:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 12px 16px;
+    background: var(--white);
+    border-top: 1px solid var(--border-color);
+}
+
+.chat-input-area input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.send-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.send-btn:hover {
+    color: #629900;
+}
+
+/* --- Global Readability Improvements --- */
+body {
+    /* Ensures the Inter font is applied globally */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* Bumps up the default text size */
+    font-size: 16px; 
+    color: var(--dark-text, #334155);
+    /* Increases vertical space between lines of text */
+    line-height: 1.6; 
+    -webkit-font-smoothing: antialiased;
+}
+
+p {
+    font-size: 1.05rem; /* Makes paragraph text slightly larger than the base 16px */
+    margin-bottom: 1.5rem;
+}
+
+/* Ensure the dropdown itself uses the correct font and size */
+#branch-select {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem; /* Larger, readable text for the dropdown */
+}
+
+/* --- Global Typography Upgrades --- */
+h1, h2, h3, h4, h5, h6 {
+    color: #0f172a; /* Slate 900 - Maximum contrast for titles */
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.01em; /* Tighter letter spacing makes titles look cleaner */
+}
+
+p {
+    color: var(--dark-text);
+    line-height: 1.7; /* Extra breathing room between lines */
+    margin-bottom: 1rem;
+}
+
+strong, b {
+    font-weight: 700;
+    color: #0f172a; /* Ensure bold text pops out */
+}

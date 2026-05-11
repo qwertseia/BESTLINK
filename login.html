@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Portal Login | Bestlink Resources</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="styles/public.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+    <div class="login-card">
+        
+        <div class="login-header">
+            <img src="images/logo.png" alt="Bestlink Logo" class="login-logo">
+            <h2>Welcome Back</h2>
+            <p>Please log in to your portal</p>
+        </div>
+
+        <form id="loginForm" class="login-form">
+            
+            <div class="input-wrapper">
+                <i class="fa-solid fa-user-shield input-icon"></i>
+                <select id="loginRole" required>
+                    <option value="" disabled selected>Select Account Type</option>
+                    <option value="applicant">Applicant</option>
+                    <option value="employee">Employee</option>
+                    <option value="admin">Admin</option>
+                    <option value="superadmin">Super Administrator</option>
+                </select>
+                <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+            </div>
+
+            <div id="branchContainer" class="dynamic-section">
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-building input-icon"></i>
+                    <select id="loginBranch">
+                        <option value="" disabled selected>Select Branch Location</option>
+                        <option value="cavite">Cavite Satellite</option>
+                        <option value="laguna">Laguna Satellite</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required>
+            </div>
+            
+            <div class="input-wrapper">
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+                <button type="button" class="password-toggle" id="togglePassword" tabindex="-1" aria-label="Toggle password visibility">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+            </div>
+            
+            <div class="login-options">
+                <label class="remember-me"><input type="checkbox"> <span>Remember me</span></label>
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="btn-primary w-100">Sign In</button>
+            
+            <div id="applicantNoteContainer" class="dynamic-section">
+                <div class="applicant-alert">
+                    <i class="fa-solid fa-circle-info alert-icon"></i>
+                    <div class="alert-text">
+                        <strong>No account yet?</strong>
+                        <span>For new applicants or those who haven't completed requirements, <a href="apply.html">click here to APPLY!</a></span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="login-footer">
+            <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Return to Homepage</a>
+        </div>
+    </div>
+</div>
+
+    <script src="scripts/login.js"></script>
+</body>
+</html>

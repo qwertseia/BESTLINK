@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bestlink Resources, Inc.</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="styles/public.css">
+    <link rel="stylesheet" href="styles/contact.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <img src="images/logo.png" alt="Bestlink Logo" class="logo-img">
+                <h1 class="company-name">BESTLINK RESOURCES INC.</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+<a href="login.html" class="btn-outline">Log in</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="height: 300px;">
+        <div class="page-header-content container">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for your staffing needs. We're here to help!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section container">
+        
+        <!-- Branch Selection Tabs -->
+        <div class="branch-tabs">
+            <button class="tab-btn active" data-branch="makati">Makati (Main)</button>
+            <button class="tab-btn" data-branch="cavite">Cavite Satellite</button>
+            <button class="tab-btn" data-branch="laguna">Laguna Satellite</button>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div id="branch-info">
+                    <!-- Branch info injected by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h3>Send Us a Message</h3>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="job">Job Inquiry</option>
+                            <option value="hiring">Hiring Services</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo-area" style="margin-bottom: 15px;">
+                    <img src="images/logo.png" alt="Bestlink Logo" class="logo-img" style="height: 40px;">
+                    <h4 style="color: white; margin-bottom: 0;">BESTLINK</h4>
+                </div>
+                <p>Founded in 2002, providing comprehensive manpower solutions and delivering exceptional staffing services tailored to meet our clients' needs.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="jobs.html">Apply for a Job</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Makati Main Office</h4>
+                <p>Rm 213 Makati Executive Center 114 LP Leviste St.,<br>Salcedo Village, Makati City</p>
+                <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> (632) 8 529-1794 to 95</p>
+                <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> bri_bestlink@globelines.com.ph</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Satellite Offices</h4>
+                <p><strong>Cavite:</strong> Unit 10 Alpha Arcade Bldg, Gov. Drive, Brgy. Langkaan II, Dasmariñas</p>
+                <p style="margin-top: 10px;"><strong>Laguna:</strong> Eastland II, 2nd Floor, Unit 7, Brgy. Pulo, Cabuyao City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bestlink Resources, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script src="scripts/contact.js"></script>
+
+</body>
+</html>

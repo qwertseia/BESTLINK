@@ -1,0 +1,6 @@
+/* Public site CSS: restored from original style.css for visual parity.
+   Keeping separate from dashboard styles (dashboard.css).
+*/
+
+@import url('../style.css');
+

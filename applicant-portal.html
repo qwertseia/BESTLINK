@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Portal | Bestlink Resources</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar" style="width: 280px;">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Bestlink Logo" class="sidebar-logo" onerror="this.outerHTML='<div class=\'logo-placeholder black-box\'></div>'">
+            <h2>Applicant Portal</h2>
+        </div>
+        
+        <nav class="sidebar-nav" style="margin-top: 20px;">
+            <a href="#" class="nav-item active" id="nav-status"><i class="fa-solid fa-person-walking-arrow-right"></i> My Hiring Journey</a>
+            <a href="#" class="nav-item" id="nav-docs"><i class="fa-solid fa-folder-open"></i> Document Vault</a>
+            <a href="#" class="nav-item" id="nav-orient"><i class="fa-solid fa-chalkboard-user"></i> Training & Orientation</a>
+            <a href="#" class="nav-item" id="nav-id"><i class="fa-solid fa-id-card"></i> Digital ID</a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-item logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="portal-indicator">
+                <span class="badge new" style="text-transform: uppercase; letter-spacing: 1px;">Live Application</span>
+            </div>
+            <div class="user-profile">
+                <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="notification-dot"></span></button>
+                <div class="avatar">
+                    <img src="images/avatar-app.jpg" alt="Applicant" onerror="this.outerHTML='<div class=\'avatar-placeholder\'><i class=\'fa-solid fa-user\'></i></div>'">
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="app-name">Juan Dela Cruz</span>
+                    <span class="user-role" id="app-id">APP-LAG-2026-001</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="page-header" style="margin-bottom: 32px;">
+                <h1>Welcome to your Portal, <span id="welcome-name">Juan</span>!</h1>
+                <p>Track your real-time progress for the <strong>Production Helper (Laguna)</strong> role below[cite: 105].</p>
+            </div>
+
+            <div class="app-dashboard-grid">
+                
+                <div class="main-column">
+                    <div class="glossy-card" style="padding: 32px;">
+                        <h2 style="margin-bottom: 32px; font-size: 1.2rem; color: var(--sidebar-bg); display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-list-check" style="color: var(--primary-green);"></i> 
+                            Laguna Hiring Pipeline
+                        </h2>
+                        
+                        <div class="stepper-container">
+                            
+                            <div class="step completed">
+                                <div class="step-icon-wrapper">
+                                    <div class="step-icon"><i class="fa-solid fa-check"></i></div>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-main">
+                                    <div class="step-header">
+                                        <div class="step-title-block">
+                                            <h3>1. Application Form</h3>
+                                            <p>Submitted successfully for HR screening.</p>
+                                        </div>
+                                        <button class="btn-expand toggle-btn" data-target="content-step-1">Details <i class="fa-solid fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="step-content-expanded" id="content-step-1" style="display: none;">
+                                        <div class="receipt-grid">
+                                            <div class="receipt-item"><label>Status:</label><span>Verified & Approved</span></div>
+                                            <div class="receipt-item"><label>Site:</label><span>Laguna Satellite</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step completed">
+                                <div class="step-icon-wrapper">
+                                    <div class="step-icon"><i class="fa-solid fa-check"></i></div>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-main">
+                                    <div class="step-header">
+                                        <div class="step-title-block">
+                                            <h3>2. Physical Screening</h3>
+                                            <p>Initial health and fitness check cleared.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step active">
+                                <div class="step-icon-wrapper">
+                                    <div class="step-icon"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-main">
+                                    <div class="step-header">
+                                        <div class="step-title-block">
+                                            <h3>3. General Exam</h3>
+                                            <p>Testing module is currently open for completion.</p>
+                                        </div>
+                                        <button class="btn-app-primary" style="padding: 8px 16px; font-size: 0.85rem; width: auto;">Start Exam</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-icon-wrapper">
+                                    <div class="step-icon"><i class="fa-solid fa-comments"></i></div>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-main">
+                                    <div class="step-header">
+                                        <div class="step-title-block">
+                                            <h3>4. Initial Interview (Background Check)</h3>
+                                            <p>Awaiting exam results to trigger scheduling.</p>
+                                        </div>
+                                        <button class="btn-expand locked" disabled><i class="fa-solid fa-lock"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-icon-wrapper">
+                                    <div class="step-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+                                </div>
+                                <div class="step-main">
+                                    <p style="color: var(--text-muted); font-size: 0.9rem; font-style: italic;">
+                                        Upcoming: Final Interview, Requirements, Orientation, Job-related Test, Contract Signing, and Deployment.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-column">
+                    <div class="glossy-card suitability-widget">
+                        <h3>Automated Match Score</h3>
+                        <div class="score-circle-container">
+                            <div class="score-circle">
+                                <span class="score-value">88%</span>
+                            </div>
+                        </div>
+                        <p class="score-desc">High compatibility with Laguna Snack Production lines based on your profile skills.</p>
+                    </div>
+
+                    <div class="glossy-card action-widget-enhanced">
+                        <div class="action-header">
+                            <div class="action-icon pulse-alert"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+                            <div>
+                                <h4>Next Task</h4>
+                                <span class="action-status">Exam Ready</span>
+                            </div>
+                        </div>
+                        <p class="action-body">Your <strong>General Exam</strong> is now available. Please ensure a stable connection before starting.</p>
+                        <button class="btn-app-primary">Take Exam Now <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="applicant.js"></script>
+</body>
+</html>

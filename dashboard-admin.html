@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Admin Dashboard | Bestlink Resources</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Bestlink Logo" class="sidebar-logo" onerror="this.outerHTML='<div class=\'logo-placeholder black-box\'></div>'">
+            <h2>HR Portal</h2>
+        </div>
+        
+        <div class="site-context-badge">
+            <span class="site-label">Current Site</span>
+            <div class="site-name" id="ui-site-name">
+                <i class="fa-solid fa-location-dot"></i> <span>Loading Site...</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item" id="nav-overview"><i class="fa-solid fa-chart-pie"></i> Local Overview</a>
+            <a href="#" class="nav-item active" id="nav-queue"><i class="fa-solid fa-users"></i> Applicant Queue</a>
+            <a href="#" class="nav-item" id="nav-calendar"><i class="fa-solid fa-calendar-check"></i> Orientation Batches</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-helmet-safety"></i> Active Deployed</a>
+            <a href="#" class="nav-item" id="nav-offboarding"><i class="fa-solid fa-box-open"></i> Offboarding / Inventory</a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-item logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+        </div>
+    </aside>
+
+    
+    <main class="main-content">
+        <header class="topbar">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="localSearch" placeholder="Search local applicants or deployed staff...">
+            </div>
+            <div class="user-profile">
+                <button class="icon-btn"><i class="fa-solid fa-bell"></i><span class="notification-dot"></span></button>
+                <div class="avatar">
+                    <img src="images/avatar-hr.jpg" alt="Site Admin" onerror="this.outerHTML='<div class=\'avatar-placeholder\'><i class=\'fa-solid fa-user-tie\'></i></div>'">
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="ui-admin-name">Admin Name</span>
+                    <span class="user-role">Area Operations Mgr</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            
+            <div id="dashboard-header-block">
+                <div class="page-header">
+                    <h1><span id="ui-header-site">Site</span> Operations Dashboard</h1>
+                    <p>Welcome back. Here is your localized daily summary.</p>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon blue"><i class="fa-solid fa-user-plus"></i></div>
+                        <div class="kpi-data">
+                            <h3>Local Applications</h3>
+                            <span class="number" id="kpi-new-apps">0</span>
+                            <span class="trend positive">Pending Review</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon yellow"><i class="fa-solid fa-clipboard-question"></i></div>
+                        <div class="kpi-data">
+                            <h3>To Schedule (Orientation)</h3>
+                            <span class="number" id="kpi-pending-orient">0</span>
+                            <span class="trend neutral">Action Required</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon green"><i class="fa-solid fa-users-gear"></i></div>
+                        <div class="kpi-data">
+                            <h3>Site Deployed Staff</h3>
+                            <span class="number" id="kpi-deployed">0</span>
+                            <span class="trend positive">Active on floor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-overview" class="dashboard-view">
+                <div class="page-header" style="margin-bottom: 24px;">
+                    <h1>Site Analytics & Performance</h1>
+                    <p>Real-time metrics for the <strong id="analytics-site-name" style="color: var(--primary-blue);">Current</strong> branch.</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="glossy-card analytics-card">
+                        <h3>Hiring Pipeline Funnel</h3>
+                        <div class="funnel-chart" id="pipelineFunnel">
+                            </div>
+                    </div>
+
+                    <div class="glossy-card analytics-card">
+                        <h3>Demand by Target Role</h3>
+                        <div class="bar-chart" id="roleDistributionChart">
+                            </div>
+                    </div>
+
+                    <div class="glossy-card analytics-card full-width">
+                        <h3>Efficiency Metrics (Month-to-Date)</h3>
+                        <div class="metrics-container">
+                            <div class="metric-box">
+                                <span class="metric-value">4.2</span>
+                                <span class="metric-label">Avg. Days to Hire</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-value">85%</span>
+                                <span class="metric-label">Offer Acceptance Rate</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-value" id="metric-total-processed">0</span>
+                                <span class="metric-label">Total Applicants Processed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-queue" class="dashboard-view">
+                <div class="data-section">
+                    <div class="section-header">
+                        <h2>Applicant Queue (<span id="ui-table-site">Site</span>)</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option value="all">All Roles</option>
+                                <option value="production">Production Helpers</option>
+                                <option value="skilled">Skilled Trades</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Applicant ID</th>
+                                    <th>Applicant Name</th>
+                                    <th>Target Role</th>
+                                    <th>Applied Date</th>
+                                    <th>AHP Score</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="applicantTableBody">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-calendar" class="dashboard-view" style="display: none;">
+                <div class="data-section" style="background: transparent; border: none;">
+                    <div class="section-header" style="padding: 0 0 20px 0; border: none;">
+                        <div>
+                            <h2 style="font-size: 1.5rem;">Upcoming Orientations</h2>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Manage training schedules and batch capacity.</p>
+                        </div>
+                        <button class="btn-action-glow" id="scheduleNewBtn">
+                            <i class="fa-solid fa-calendar-plus"></i> Schedule New Batch
+                        </button>
+                    </div>
+                    
+                    <div class="agenda-container" style="padding: 0;">
+                        <div class="agenda-card">
+                            <div class="agenda-date">
+                                <span class="month">OCT</span>
+                                <span class="day">28</span>
+                            </div>
+                            <div class="agenda-details">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <h4>Production Helpers (Batch A)</h4>
+                                    <span class="badge" style="background: #e0f2fe; color: #0284c7;">15/20 Seats</span>
+                                </div>
+                                <p><i class="fa-regular fa-clock"></i> 8:00 AM - 12:00 NN <span style="margin: 0 8px;">|</span> <i class="fa-solid fa-location-dot"></i> Training Room 1</p>
+                                <div class="attendee-avatars">
+                                    <span class="avatar-sm">JD</span>
+                                    <span class="avatar-sm" style="background: #f59e0b;">AL</span>
+                                    <span class="avatar-sm" style="background: #ef4444;">MC</span>
+                                    <span class="avatar-count">+12</span>
+                                </div>
+                            </div>
+                            <div class="agenda-actions-group">
+                                <button class="btn-action-ghost" title="Message Batch"><i class="fa-regular fa-envelope"></i></button>
+                                <button class="btn-action-manage">Manage <i class="fa-solid fa-chevron-right" style="margin-left: 6px; font-size: 0.8rem;"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="agenda-card">
+                            <div class="agenda-date">
+                                <span class="month" style="background: #f59e0b;">NOV</span>
+                                <span class="day">02</span>
+                            </div>
+                            <div class="agenda-details">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <h4>Skilled Trades / Maintenance</h4>
+                                    <span class="badge" style="background: #fef3c7; color: #d97706;">2/5 Seats</span>
+                                </div>
+                                <p><i class="fa-regular fa-clock"></i> 1:00 PM - 5:00 PM <span style="margin: 0 8px;">|</span> <i class="fa-solid fa-location-dot"></i> Workshop B</p>
+                                <div class="attendee-avatars">
+                                    <span class="avatar-sm" style="background: var(--primary-green);">MR</span>
+                                    <span class="avatar-sm" style="background: var(--primary-blue);">PG</span>
+                                </div>
+                            </div>
+                            <div class="agenda-actions-group">
+                                <button class="btn-action-ghost" title="Message Batch"><i class="fa-regular fa-envelope"></i></button>
+                                <button class="btn-action-manage">Manage <i class="fa-solid fa-chevron-right" style="margin-left: 6px; font-size: 0.8rem;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-offboarding" class="dashboard-view" style="display: none;">
+                <div class="page-header" style="margin-bottom: 24px;">
+                    <h1>Equipment Clearance & Offboarding</h1>
+                    <p>Process returned assets for departing deployed staff.</p>
+                </div>
+
+                <div class="offboarding-container glossy-card">
+                    <div class="offboarding-header">
+                        <div class="employee-selector">
+                            <label>Search Departing Employee:</label>
+                            <div class="searchable-select">
+                                <div class="search-input-wrapper">
+                                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                    <input type="text" id="offboard-search-input" placeholder="Search by name, ID, or role..." autocomplete="off">
+                                    <button type="button" id="clear-search-btn" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <ul id="offboard-search-results" class="search-results-list" style="display: none;">
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="clearance-progress">
+                            <div class="progress-header">
+                                <span style="font-weight: 600; color: var(--sidebar-bg);">Clearance Progress</span>
+                                <span id="progress-text" style="color: var(--primary-green); font-weight: 700;">0%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-grid">
+                        <h3 class="col-title" style="margin-bottom: 16px; grid-column: 1 / -1;">Required Returns</h3>
+                        
+                        <label class="check-item">
+                            <div class="check-info">
+                                <i class="fa-solid fa-id-badge" style="color: var(--primary-blue);"></i>
+                                <div>
+                                    <h4>Company ID Badge</h4>
+                                    <p>Physical ID and lanyard.</p>
+                                </div>
+                            </div>
+                            <input type="checkbox" class="clearance-cb">
+                            <span class="custom-toggle"></span>
+                        </label>
+
+                        <label class="check-item">
+                            <div class="check-info">
+                                <i class="fa-solid fa-shirt" style="color: #f59e0b;"></i>
+                                <div>
+                                    <h4>Company Uniforms (2 Sets)</h4>
+                                    <p>Polo shirts and cargo pants.</p>
+                                </div>
+                            </div>
+                            <input type="checkbox" class="clearance-cb">
+                            <span class="custom-toggle"></span>
+                        </label>
+
+                        <label class="check-item">
+                            <div class="check-info">
+                                <i class="fa-solid fa-helmet-safety" style="color: var(--primary-green);"></i>
+                                <div>
+                                    <h4>Safety Gear (PPE)</h4>
+                                    <p>Hard hat, safety goggles, and vest.</p>
+                                </div>
+                            </div>
+                            <input type="checkbox" class="clearance-cb">
+                            <span class="custom-toggle"></span>
+                        </label>
+
+                        <label class="check-item">
+                            <div class="check-info">
+                                <i class="fa-solid fa-boot" style="color: #64748b;"></i>
+                                <div>
+                                    <h4>Steel-Toe Boots</h4>
+                                    <p>Issued safety footwear.</p>
+                                </div>
+                            </div>
+                            <input type="checkbox" class="clearance-cb">
+                            <span class="custom-toggle"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-footer" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                        <p style="color: var(--text-muted); font-size: 0.85rem;"><i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> All items must be checked to issue final clearance.</p>
+                        <button class="btn-primary" id="finalizeClearanceBtn" disabled style="opacity: 0.5; cursor: not-allowed;">
+                            Issue Final Clearance <i class="fa-solid fa-check-double" style="margin-left: 8px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="pipelineModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box pipeline-modal-box">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-app-name">Applicant Name</h2>
+                    <p id="modal-app-id" class="text-subtitle">APP-ID</p>
+                </div>
+                <button id="closePipelineBtn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body p-0">
+                <div class="pipeline-grid">
+                    <div class="pipeline-sidebar">
+                        <div class="profile-section">
+                            <h3 class="premium-label">Profile Overview</h3>
+                            <div class="detail-group">
+                                <label>Target Role</label>
+                                <p id="modal-app-role">Role</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Applied Date</label>
+                                <p id="modal-app-date">Date</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Suitability Score</label>
+                                <div class="score-pill">
+                                    <span id="modal-app-score">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-section mt-4">
+                            <h3 class="premium-label">Documents</h3>
+                            <ul class="premium-doc-list">
+                                <li>
+                                    <div class="doc-title"><i class="fa-solid fa-file-pdf text-red"></i> Resume.pdf</div>
+                                    <button class="ghost-btn"><i class="fa-solid fa-eye"></i></button>
+                                </li>
+                                <li>
+                                    <div class="doc-title"><i class="fa-solid fa-id-card text-blue"></i> ID_Photo.jpg</div>
+                                    <button class="ghost-btn"><i class="fa-solid fa-eye"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-main">
+                        <div class="pipeline-header">
+                            <h3 class="premium-label mb-0">Hiring Process</h3>
+                            <span class="site-tag" id="modal-site-badge">Site Pipeline</span>
+                        </div>
+                        
+                        <div class="timeline-container" id="adminPipelineContainer">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="scoringModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box" style="max-width: 600px;">
+            <div class="modal-header">
+                <div>
+                    <h2>AHP Evaluation Panel</h2>
+                    <p id="score-app-name" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Applicant Name - Role</p>
+                </div>
+                <button id="closeScoringBtn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="scoring-grid">
+                    <div class="score-input-group">
+                        <div class="score-labels"><label>General Knowledge</label></div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="score-gen" min="0" max="100" value="0" class="score-slider">
+                            <span class="score-display"><span id="val-gen">0</span>/100</span>
+                        </div>
+                    </div>
+                    <div class="score-input-group">
+                        <div class="score-labels"><label>Job-Related / Trade Test</label></div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="score-trade" min="0" max="100" value="0" class="score-slider">
+                            <span class="score-display"><span id="val-trade">0</span>/100</span>
+                        </div>
+                    </div>
+                    <div class="score-input-group">
+                        <div class="score-labels"><label>Interview Assessment</label></div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="score-int" min="0" max="100" value="0" class="score-slider">
+                            <span class="score-display"><span id="val-int">0</span>/100</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ahp-result-box">
+                    <div class="result-text"><h4>Calculated Suitability</h4></div>
+                    <div class="final-score" id="final-ahp-score">0%</div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content: flex-end;">
+                <button class="btn-outline" id="cancelScoreBtn" style="margin-right: 12px;">Cancel</button>
+                <button class="btn-primary" id="saveScoreBtn">Save & Update Status</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

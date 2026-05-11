@@ -1,0 +1,121 @@
+/* --- Premium Input Wrappers --- */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+
+/* The blue focus ring encapsulates the whole wrapper, not just the input */
+.input-wrapper:focus-within {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.input-wrapper:focus-within .input-icon {
+    color: var(--primary-blue);
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    padding: 16px 48px; /* Room for left icon and right icon/toggle */
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--dark-text);
+    outline: none;
+    appearance: none;
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 16px;
+    color: var(--text-muted);
+    pointer-events: none;
+    font-size: 0.9rem;
+}
+
+/* --- Password Toggle UX --- */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: var(--dark-text);
+}
+
+/* --- Progressive Disclosure (Smooth Animation) --- */
+.dynamic-section {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 0;
+}
+
+.dynamic-section.show {
+    max-height: 150px; /* High enough to fit the content */
+    opacity: 1;
+}
+
+/* --- Applicant Alert Box --- */
+.applicant-alert {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+.alert-icon {
+    color: var(--primary-green);
+    font-size: 1.25rem;
+    margin-top: 2px;
+}
+
+.alert-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark-text);
+}
+
+.alert-text strong {
+    display: block;
+    color: #166534;
+    margin-bottom: 4px;
+}
+
+.alert-text a {
+    color: var(--primary-green);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.alert-text a:hover {
+    text-decoration: underline;
+}

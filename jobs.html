@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Opportunities | Bestlink Resources, Inc.</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="styles/public.css">
+    <link rel="stylesheet" href="styles/jobs.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <img src="images/logo.png" alt="Bestlink Logo" class="logo-img">
+                <h1 class="company-name">BESTLINK RESOURCES INC.</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="jobs.html" class="active">Jobs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="login.html" class="btn-outline">Log in</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header black-box">
+        <div class="page-header-content container">
+            <h2>Career Opportunities</h2>
+            <p>Find your next role and drive business success with our partner clients.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="alert-banner">
+            <i class="fa-solid fa-circle-exclamation alert-icon"></i>
+            <div>
+                <strong>Notice for Walk-in Applicants:</strong> While our online system is available 24/7, physical walk-ins, final interviews, and exams at our Cavite and Laguna satellite offices are strictly entertained during the morning shift (8:00 AM until before lunch) from Monday to Friday.
+            </div>
+        </div>
+    </div>
+
+    <section class="job-portal container">
+        
+        <div class="jobs-intro-wrapper" id="intro-section">
+            <div class="intro-text">
+                <h2>Explore Functional Areas</h2>
+                <p>At Bestlink Resources, we organize our massive workforce into functional areas across our main and satellite branches. Select a branch below to view the available categories, or fast-track your application by applying to our urgent positions directly.</p>
+            </div>
+            
+            <div class="urgent-spotlight">
+                <div class="spotlight-header">
+                    <span class="pulse-dot"></span>
+                    <h3>High Priority Hiring</h3>
+                </div>
+                <div class="spotlight-job">
+                    <h4>Supervisory & Technical Staff</h4>
+                    <span class="job-meta" style="margin-bottom: 12px;"><i class="fa-solid fa-building"></i> Makati (Main) &bull; <i class="fa-solid fa-briefcase"></i> Office / Admin</span>
+                    <a href="apply.html?branch=makati&category=Supervisory" class="btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">Apply Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="branch-filter">
+            <label for="branch-select">Select Location to View Opportunities:</label>
+            <div class="custom-select-wrapper">
+                <i class="fa-solid fa-location-dot select-icon"></i>
+                <select id="branch-select">
+                    <option value="none" selected disabled>-- Choose a Branch --</option>
+                    <option value="makati">Makati (Main Office)</option>
+                    <option value="cavite">Cavite Satellite</option>
+                    <option value="laguna">Laguna Satellite</option>
+                </select>
+                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+            </div>
+        </div>
+
+        <div id="jobs-container-wrapper" style="display: none;">
+            <div class="section-heading" style="margin-bottom: 24px;">
+                <h3 id="current-branch-title" style="font-size: 1.8rem;">Available Categories</h3>
+                <p id="current-branch-desc" style="color: var(--text-muted); font-size: 1rem;"></p>
+            </div>
+
+            <div id="jobs-container" class="category-grid">
+                </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo-area" style="margin-bottom: 15px;">
+                    <img src="images/logo.png" alt="Bestlink Logo" class="logo-img" style="height: 40px;">
+                    <h4 style="color: white; margin-bottom: 0;">BESTLINK</h4>
+                </div>
+                <p>Founded in 2002, providing comprehensive manpower solutions and delivering exceptional staffing services tailored to meet our clients' needs.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="jobs.html">Apply for a Job</a></li>
+                    <li><a href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Makati Main Office</h4>
+                <p>Rm 213 Makati Executive Center 114 LP Leviste St.,<br>Salcedo Village, Makati City</p>
+                <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> (632) 8 529-1794 to 95</p>
+                <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> bri_bestlink@globelines.com.ph</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Satellite Offices</h4>
+                <p><strong>Cavite:</strong> Unit 10 Alpha Arcade Bldg, Gov. Drive, Brgy. Langkaan II, Dasmariñas</p>
+                <p style="margin-top: 10px;"><strong>Laguna:</strong> Eastland II, 2nd Floor, Unit 7, Brgy. Pulo, Cabuyao City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bestlink Resources, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/jobs.js"></script>
+</body>
+</html>
